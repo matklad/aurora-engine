@@ -715,7 +715,7 @@ fn get_compiled_artifact(runner: &test_utils::AuroraRunner) -> wasmer::Module {
     use near_primitives::types::CompiledContractCache;
 
     let current_protocol_version = u32::MAX;
-    let vm_kind = near_vm_runner::VMKind::for_protocol_version(current_protocol_version);
+    let vm_kind = near_vm_runner::internal::VMKind::for_protocol_version(current_protocol_version);
     near_vm_runner::precompile_contract(
         &runner.code,
         &runner.wasm_config,

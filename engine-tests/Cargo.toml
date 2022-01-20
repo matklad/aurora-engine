@@ -36,11 +36,11 @@ serde_json = "1"
 hex = { version = "0.4.3", default-features = false }
 near-sdk = { git = "https://github.com/aurora-is-near/near-sdk-rs.git", rev = "5e58722bd61d9d24ae6293326146c751f0a814fb" }
 near-sdk-sim = { git = "https://github.com/aurora-is-near/near-sdk-rs.git", rev = "5e58722bd61d9d24ae6293326146c751f0a814fb" }
-near-crypto = { git = "https://github.com/near/nearcore.git", rev = "0c9ad79a18e431f843e6123cf4559f9c2c5dd228" }
-near-vm-runner = { git = "https://github.com/near/nearcore.git", rev = "0c9ad79a18e431f843e6123cf4559f9c2c5dd228" }
-near-vm-logic = { git = "https://github.com/near/nearcore.git", rev = "0c9ad79a18e431f843e6123cf4559f9c2c5dd228" }
-near-primitives-core = { git = "https://github.com/near/nearcore.git", rev = "0c9ad79a18e431f843e6123cf4559f9c2c5dd228" }
-near-primitives = { git = "https://github.com/near/nearcore.git", rev = "0c9ad79a18e431f843e6123cf4559f9c2c5dd228" }
+near-crypto = { git = "https://github.com/near/nearcore.git", rev = "077ac7d7c26d5a9b27178f2df26dcfb26a3c69ee" }
+near-vm-runner = { git = "https://github.com/near/nearcore.git", rev = "077ac7d7c26d5a9b27178f2df26dcfb26a3c69ee" }
+near-vm-logic = { git = "https://github.com/near/nearcore.git", rev = "077ac7d7c26d5a9b27178f2df26dcfb26a3c69ee" }
+near-primitives-core = { git = "https://github.com/near/nearcore.git", rev = "077ac7d7c26d5a9b27178f2df26dcfb26a3c69ee" }
+near-primitives = { git = "https://github.com/near/nearcore.git", rev = "077ac7d7c26d5a9b27178f2df26dcfb26a3c69ee" }
 wasmer = { package = "wasmer-near", version = "2.0.1", default-features = false, features = ["singlepass", "universal"] }
 libsecp256k1 = "0.3.5"
 rand = "0.7.3"
