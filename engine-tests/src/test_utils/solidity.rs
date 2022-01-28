@@ -1,5 +1,4 @@
 use crate::prelude::{transactions::legacy::TransactionLegacy, Address, U256};
-use near_sdk::serde_json;
 use serde::Deserialize;
 use std::fs;
 use std::path::Path;

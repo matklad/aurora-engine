@@ -7,7 +7,7 @@ use aurora_engine_sdk::io::IO;
 use aurora_engine_types::types::{Address, NEP141Wei, NearGas, Wei};
 use aurora_engine_types::{account_id::AccountId, H256, U256};
 use engine_standalone_storage::{BlockMetadata, Storage};
-use near_sdk_sim::DEFAULT_GAS;
+// use near_sdk_sim::DEFAULT_GAS;
 
 pub mod block;
 pub mod promise;
@@ -119,7 +119,7 @@ pub fn mint_evm_account<I: IO + Copy, E: Env>(
             aurora_account_id.clone(),
             aurora_account_id.clone(),
             deposit_args,
-            NearGas::new(DEFAULT_GAS),
+            NearGas::new(10u64.pow(13)),
         )
         .map_err(unsafe_to_string)
         .unwrap();

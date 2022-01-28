@@ -6,6 +6,7 @@ use aurora_engine::fungible_token::FungibleTokenMetadata;
 use aurora_engine::parameters::{SubmitResult, TransactionStatus};
 use aurora_engine_sdk as sdk;
 use borsh::BorshSerialize;
+use near_primitives::profile::Cost;
 use rand::RngCore;
 use secp256k1::SecretKey;
 use std::path::{Path, PathBuf};
@@ -135,46 +136,6 @@ fn test_log_address() {
     assert_eq!(log_address, greet_contract.address);
 }
 
-#[test]
-fn test_solidity_pure_bench() {
-    let (mut runner, mut signer, _) = initialize_transfer();
-    runner.wasm_config.limit_config.max_gas_burnt = u64::MAX;
-
-    let constructor = test_utils::solidity::ContractConstructor::force_compile(
-        "src/tests/res",
-        "target/solidity_build",
-        "bench.sol",
-        "Bencher",
-    );
-
-    let nonce = signer.use_nonce();
-    let contract = runner.deploy_contract(
-        &signer.secret_key,
-        |c| c.deploy_without_constructor(nonce.into()),
-        constructor,
-    );
-
-    // Number of iterations to do
-    let loop_limit = 100_000;
-    let (result, profile) = runner
-        .submit_with_signer_profiled(&mut signer, |nonce| {
-            contract.call_method_with_args(
-                "cpu_ram_soak_test",
-                &[ethabi::Token::Uint(loop_limit.into())],
-                nonce,
-            )
-        })
-        .unwrap();
-
-    assert!(
-        result.gas_used > 192_000_000,
-        "Over 192 million EVM gas is used"
-    );
-    assert!(
-        profile.all_gas() > 29_000 * 1_000_000_000_000,
-        "Over 29k NEAR Tgas is used"
-    );
-}
 
 #[test]
 fn test_revert_during_contract_deploy() {

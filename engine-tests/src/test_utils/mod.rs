@@ -8,6 +8,7 @@ use near_primitives_core::profile::ProfileData;
 use near_primitives_core::runtime::fees::RuntimeFeesConfig;
 use near_vm_logic::types::ReturnData;
 use near_vm_logic::{VMContext, VMOutcome};
+use near_vm_runner::internal::VMKind;
 use near_vm_runner::{MockCompiledContractCache, VMError};
 use rlp::RlpStream;
 use secp256k1::{self, Message, PublicKey, SecretKey};
@@ -183,17 +184,23 @@ impl AuroraRunner {
             input,
         );
 
-        let (maybe_outcome, maybe_error) = near_vm_runner::run(
+        let t = std::time::Instant::now();
+        self.wasm_config.regular_op_cost = 0;
+        let vm_kind = VMKind::Wasmer0;
+        let (maybe_outcome, maybe_error) = vm_kind.runtime(self.wasm_config.clone()).unwrap().run(
             &self.code,
             method_name,
             &mut self.ext,
             self.context.clone(),
-            &self.wasm_config,
             &self.fees_config,
             &[],
             self.current_protocol_version,
             Some(&self.cache),
         );
+        assert!(maybe_error.is_none());
+        eprintln!("\n{:?}", vm_kind);
+        eprintln!("used_gas = {:?}", maybe_outcome.as_ref().unwrap().used_gas);
+        eprintln!("WASM:  {:?}", t.elapsed());
         if let Some(outcome) = &maybe_outcome {
             self.context.storage_usage = outcome.storage_usage;
             self.previous_logs = outcome.logs.clone();
@@ -203,9 +210,11 @@ impl AuroraRunner {
             if maybe_error.is_none()
                 && (method_name == SUBMIT || method_name == CALL || method_name == DEPLOY_ERC20)
             {
+                let t = std::time::Instant::now();
                 standalone_runner
                     .submit_raw(method_name, &self.context)
                     .unwrap();
+                eprintln!("NATIVE: {:?}", t.elapsed());
                 self.validate_standalone();
             }
         }
