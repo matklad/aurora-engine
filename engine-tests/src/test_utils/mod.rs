@@ -8,6 +8,7 @@ use near_primitives_core::profile::ProfileData;
 use near_primitives_core::runtime::fees::RuntimeFeesConfig;
 use near_vm_logic::types::ReturnData;
 use near_vm_logic::{VMContext, VMOutcome};
+use near_vm_runner::internal::VMKind;
 use near_vm_runner::{MockCompiledContractCache, VMError};
 use rlp::RlpStream;
 use secp256k1::{self, Message, PublicKey, SecretKey};
@@ -183,17 +184,21 @@ impl AuroraRunner {
             input,
         );
 
-        let (maybe_outcome, maybe_error) = near_vm_runner::run(
+        let mut config = self.wasm_config.clone();
+        config.regular_op_cost = 0;
+        let vm_kind = VMKind::Wasmer2;
+        let t = std::time::Instant::now();
+        let (maybe_outcome, maybe_error) = vm_kind.runtime(config).unwrap().run(
             &self.code,
             method_name,
             &mut self.ext,
             self.context.clone(),
-            &self.wasm_config,
             &self.fees_config,
             &[],
             self.current_protocol_version,
             Some(&self.cache),
         );
+        eprintln!("{:<10}: {:?}", format!("{vm_kind:?}"), t.elapsed());
         if let Some(outcome) = &maybe_outcome {
             self.context.storage_usage = outcome.storage_usage;
             self.previous_logs = outcome.logs.clone();
