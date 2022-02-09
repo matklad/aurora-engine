@@ -1408,7 +1408,7 @@ checksum = "f7531096570974c3a9dcf9e4b8e1cede1ec26cf5046219fb3b9d897503b9be59"
 [[package]]
 name = "evm"
 version = "0.33.1"
-source = "git+https://github.com/aurora-is-near/sputnikvm.git?rev=177e253ad947b7186bfa6920843075556b60ff54#177e253ad947b7186bfa6920843075556b60ff54"
+source = "git+https://github.com/matklad/sputnikvm.git?branch=m/dynamic-cost#e35072899033f89855e9c0524000a8441307a14d"
 dependencies = [
  "auto_impl",
  "environmental",
@@ -1428,7 +1428,7 @@ dependencies = [
 [[package]]
 name = "evm-core"
 version = "0.33.0"
-source = "git+https://github.com/aurora-is-near/sputnikvm.git?rev=177e253ad947b7186bfa6920843075556b60ff54#177e253ad947b7186bfa6920843075556b60ff54"
+source = "git+https://github.com/matklad/sputnikvm.git?branch=m/dynamic-cost#e35072899033f89855e9c0524000a8441307a14d"
 dependencies = [
  "funty",
  "parity-scale-codec",
@@ -1440,7 +1440,7 @@ dependencies = [
 [[package]]
 name = "evm-gasometer"
 version = "0.33.0"
-source = "git+https://github.com/aurora-is-near/sputnikvm.git?rev=177e253ad947b7186bfa6920843075556b60ff54#177e253ad947b7186bfa6920843075556b60ff54"
+source = "git+https://github.com/matklad/sputnikvm.git?branch=m/dynamic-cost#e35072899033f89855e9c0524000a8441307a14d"
 dependencies = [
  "environmental",
  "evm-core",
@@ -1451,7 +1451,7 @@ dependencies = [
 [[package]]
 name = "evm-runtime"
 version = "0.33.0"
-source = "git+https://github.com/aurora-is-near/sputnikvm.git?rev=177e253ad947b7186bfa6920843075556b60ff54#177e253ad947b7186bfa6920843075556b60ff54"
+source = "git+https://github.com/matklad/sputnikvm.git?branch=m/dynamic-cost#e35072899033f89855e9c0524000a8441307a14d"
 dependencies = [
  "auto_impl",
  "environmental",
@@ -2299,7 +2299,7 @@ checksum = "0debeb9fcf88823ea64d64e4a815ab1643f33127d995978e099942ce38f25238"
 [[package]]
 name = "near-account-id"
 version = "0.0.0"
-source = "git+https://github.com/near/nearcore.git?rev=83fc0f7d6b212bacc49f058e7400743de3e59783#83fc0f7d6b212bacc49f058e7400743de3e59783"
+source = "git+https://github.com/matklad/nearcore.git?rev=86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc#86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc"
 dependencies = [
  "borsh 0.9.1",
  "serde",
@@ -2327,7 +2327,7 @@ dependencies = [
 [[package]]
 name = "near-cache"
 version = "0.0.0"
-source = "git+https://github.com/near/nearcore.git?rev=83fc0f7d6b212bacc49f058e7400743de3e59783#83fc0f7d6b212bacc49f058e7400743de3e59783"
+source = "git+https://github.com/matklad/nearcore.git?rev=86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc#86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc"
 dependencies = [
  "lru",
 ]
@@ -2351,7 +2351,7 @@ dependencies = [
 [[package]]
 name = "near-crypto"
 version = "0.0.0"
-source = "git+https://github.com/near/nearcore.git?rev=83fc0f7d6b212bacc49f058e7400743de3e59783#83fc0f7d6b212bacc49f058e7400743de3e59783"
+source = "git+https://github.com/matklad/nearcore.git?rev=86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc#86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc"
 dependencies = [
  "arrayref",
  "blake2",
@@ -2449,7 +2449,7 @@ dependencies = [
 [[package]]
 name = "near-primitives"
 version = "0.0.0"
-source = "git+https://github.com/near/nearcore.git?rev=83fc0f7d6b212bacc49f058e7400743de3e59783#83fc0f7d6b212bacc49f058e7400743de3e59783"
+source = "git+https://github.com/matklad/nearcore.git?rev=86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc#86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc"
 dependencies = [
  "borsh 0.9.1",
  "byteorder",
@@ -2534,7 +2534,7 @@ dependencies = [
 [[package]]
 name = "near-primitives-core"
 version = "0.0.0"
-source = "git+https://github.com/near/nearcore.git?rev=83fc0f7d6b212bacc49f058e7400743de3e59783#83fc0f7d6b212bacc49f058e7400743de3e59783"
+source = "git+https://github.com/matklad/nearcore.git?rev=86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc#86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc"
 dependencies = [
  "base64 0.11.0",
  "borsh 0.9.1",
@@ -2584,7 +2584,7 @@ dependencies = [
 [[package]]
 name = "near-rpc-error-core"
 version = "0.0.0"
-source = "git+https://github.com/near/nearcore.git?rev=83fc0f7d6b212bacc49f058e7400743de3e59783#83fc0f7d6b212bacc49f058e7400743de3e59783"
+source = "git+https://github.com/matklad/nearcore.git?rev=86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc#86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc"
 dependencies = [
  "quote",
  "serde",
@@ -2616,7 +2616,7 @@ dependencies = [
 [[package]]
 name = "near-rpc-error-macro"
 version = "0.0.0"
-source = "git+https://github.com/near/nearcore.git?rev=83fc0f7d6b212bacc49f058e7400743de3e59783#83fc0f7d6b212bacc49f058e7400743de3e59783"
+source = "git+https://github.com/matklad/nearcore.git?rev=86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc#86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc"
 dependencies = [
  "near-rpc-error-core 0.0.0",
  "serde",
@@ -2717,7 +2717,7 @@ dependencies = [
 [[package]]
 name = "near-stable-hasher"
 version = "0.0.0"
-source = "git+https://github.com/near/nearcore.git?rev=83fc0f7d6b212bacc49f058e7400743de3e59783#83fc0f7d6b212bacc49f058e7400743de3e59783"
+source = "git+https://github.com/matklad/nearcore.git?rev=86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc#86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc"
 
 [[package]]
 name = "near-store"
@@ -2748,7 +2748,7 @@ dependencies = [
 [[package]]
 name = "near-vm-errors"
 version = "0.0.0"
-source = "git+https://github.com/near/nearcore.git?rev=83fc0f7d6b212bacc49f058e7400743de3e59783#83fc0f7d6b212bacc49f058e7400743de3e59783"
+source = "git+https://github.com/matklad/nearcore.git?rev=86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc#86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc"
 dependencies = [
  "borsh 0.9.1",
  "near-account-id 0.0.0",
@@ -2782,7 +2782,7 @@ dependencies = [
 [[package]]
 name = "near-vm-logic"
 version = "0.0.0"
-source = "git+https://github.com/near/nearcore.git?rev=83fc0f7d6b212bacc49f058e7400743de3e59783#83fc0f7d6b212bacc49f058e7400743de3e59783"
+source = "git+https://github.com/matklad/nearcore.git?rev=86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc#86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc"
 dependencies = [
  "base64 0.13.0",
  "borsh 0.9.1",
@@ -2842,7 +2842,7 @@ dependencies = [
 [[package]]
 name = "near-vm-runner"
 version = "0.0.0"
-source = "git+https://github.com/near/nearcore.git?rev=83fc0f7d6b212bacc49f058e7400743de3e59783#83fc0f7d6b212bacc49f058e7400743de3e59783"
+source = "git+https://github.com/matklad/nearcore.git?rev=86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc#86c6deba0b9affba7fc769dc9e6919a8cd5ee2dc"
 dependencies = [
  "borsh 0.9.1",
  "loupe",
@@ -3867,9 +3867,9 @@ dependencies = [
 
 [[package]]
 name = "rustversion"
-version = "1.0.5"
+version = "1.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "61b3909d758bb75c79f23d4736fac9433868679d3ad2ea7a61e3c25cfda9a088"
+checksum = "f2cc38e8fa666e2de3c4aba7edeb5ffc5246c1c2ed0e3d17e560aeeba736b23f"
 
 [[package]]
 name = "ryu"
@@ -4210,9 +4210,9 @@ checksum = "422045212ea98508ae3d28025bc5aaa2bd4a9cdaecd442a08da2ee620ee9ea95"
 
 [[package]]
 name = "target-lexicon"
-version = "0.12.2"
+version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d9bffcddbc2458fa3e6058414599e3c838a022abae82e5c67b4f7f80298d5bff"
+checksum = "d7fa7e55043acb85fca6b3c01485a2eeb6b69c5d21002e273c79e465f43b7ac1"
 
 [[package]]
 name = "tempfile"
@@ -4699,7 +4699,7 @@ dependencies = [
  "serde",
  "serde_bytes",
  "smallvec",
- "target-lexicon 0.12.2",
+ "target-lexicon 0.12.3",
  "thiserror",
  "wasmer-types-near",
  "wasmer-vm-near",
@@ -4832,7 +4832,7 @@ dependencies = [
  "rustc-demangle",
  "serde",
  "serde_bytes",
- "target-lexicon 0.12.2",
+ "target-lexicon 0.12.3",
  "thiserror",
  "wasmer-compiler-near",
  "wasmer-types-near",

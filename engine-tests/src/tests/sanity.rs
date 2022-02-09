@@ -328,11 +328,7 @@ fn test_num_wasm_functions() {
         .parse(runner.code.code())
         .unwrap();
     let num_functions = module.funcs.iter().count();
-    assert!(
-        num_functions <= 1440,
-        "{} is not less than 1440",
-        num_functions
-    );
+    assert!(num_functions <= 9_000, "{} is over 9000", num_functions);
 }
 
 /// Tests we can transfer Eth from one account to another and that the balances are correctly
