@@ -185,6 +185,7 @@ impl AuroraRunner {
             input,
         );
 
+        let t = std::time::Instant::now();
         let (maybe_outcome, maybe_error) = near_vm_runner::run(
             &self.code,
             method_name,
@@ -196,6 +197,7 @@ impl AuroraRunner {
             self.current_protocol_version,
             Some(&self.cache),
         );
+        eprintln!("wasm_time = {:?}", t.elapsed());
         if let Some(outcome) = &maybe_outcome {
             self.context.storage_usage = outcome.storage_usage;
             self.previous_logs = outcome.logs.clone();
@@ -205,9 +207,12 @@ impl AuroraRunner {
             if maybe_error.is_none()
                 && (method_name == SUBMIT || method_name == CALL || method_name == DEPLOY_ERC20)
             {
+                let t = std::time::Instant::now();
                 standalone_runner
                     .submit_raw(method_name, &self.context)
                     .unwrap();
+                eprintln!("real_time = {:?}", t.elapsed());
+
                 self.validate_standalone();
             }
         }

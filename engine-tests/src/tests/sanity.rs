@@ -155,7 +155,7 @@ fn test_solidity_pure_bench() {
     );
 
     // Number of iterations to do
-    let loop_limit = 10_000;
+    let loop_limit = 6_000;
     let (result, profile) = runner
         .submit_with_signer_profiled(&mut signer, |nonce| {
             contract.call_method_with_args(
@@ -165,15 +165,8 @@ fn test_solidity_pure_bench() {
             )
         })
         .unwrap();
-
-    assert!(
-        result.gas_used > 38_000_000,
-        "Over 38 million EVM gas is used"
-    );
-    assert!(
-        profile.all_gas() > 2200 * 1_000_000_000_000,
-        "Over 2200 NEAR Tgas is used"
-    );
+    eprintln!("eth  gas = {:?}", result.gas_used);
+    eprintln!("near gas = {:?}", profile.all_gas());
 }
 
 #[test]
